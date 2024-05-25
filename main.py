@@ -1,17 +1,25 @@
 import random
 
 welcome_message = "WELCOME TO CUYPY GAMES!"
-cuypy_position = random.randint(1, 4)
+cuypy_position = random.randint(1, 4)   # ini variable dengan library random integer
 
 
+print("*****************************") # TAMPILAN LUAR GAMES
+print(f"** {welcome_message} **")   
 print("*****************************")
-print(f"** {welcome_message} **")
-print("*****************************")
 
-nama_user = input ("masukan nama anda: ")
+nama_user = input ("masukan nama anda: ") # INPUT NAMA 
 
-print (f''' Hallo {nama_user}! Coba perhatikan gambar dibawah ini 
-       |_| |_| |_| |_|
+bentuk_goa = "|_|" # VARAIBEL BENTUK GOA
+goa = [bentuk_goa] * 4 # INI HARUS TETAP KOSONG 
+
+goa_kosong = goa.copy() #  INI ADALAH TEMPAT BARU UNTUK SI CUYPY
+
+goa[cuypy_position - 1] = "|0_0|"
+
+
+print (f''' Hallo {nama_user}! Coba perhatikan gambar dibawah ini
+       {goa_kosong}
        ''')
 
 pilihan_user = int(input ("Menurut kamu GOA nomor berapa CUYPAY berada? [1 / 2 / 3 / 4]: "))
@@ -23,10 +31,10 @@ if confirm_answer == "n":
     exit()
 elif confirm_answer == "y":
     if pilihan_user == cuypy_position:
-        print(f"SELAMAT {nama_user} KAMU MENANG! posisi CUYPY ada di GOA nomor {cuypy_position} dan pilihanmu adalah GOA nomor {pilihan_user}.")
+        print(f"{goa} \n SELAMAT KAMU MENANG !")
     else:
-        print (f"KAMU KALAH! CUYPY BUKAN BERADA DISITU, Tapi Ada di GOA nomor {cuypy_position}. Sedangkan kamu memilih GOA nomor {pilihan_user} ")
+        print (f"{goa} \n MAAF KAMU KALAH !, CUYPY BERADA DI {cuypy_position}")
 else:
     print("SILAHKAN ULANGI PROGRAMNYA!")
-exit()
+exit() 
         
